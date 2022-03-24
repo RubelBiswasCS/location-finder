@@ -1,13 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+
+import './App.scss';
 import { Counter } from './features/counter/Counter';
-import './App.css';
+import SearchPanel from './components/SearchPanel';
+import MapPanel from './components/MapPanel';
+
+
 
 function App() {
   return (
-    <div className="App">
+    <Container className={'search-home'}>
+      <SearchPanel/>
+      <MapPanel/>
+    </Container>
+  );
+}
+
+export default App;
+
+
+{/* <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -51,8 +67,4 @@ function App() {
           </a>
         </span>
       </header>
-    </div>
-  );
-}
-
-export default App;
+    </div> */}
