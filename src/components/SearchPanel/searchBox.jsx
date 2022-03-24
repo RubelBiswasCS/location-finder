@@ -2,9 +2,12 @@ import * as React from 'react';
 import Chip from '@mui/material/Chip';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField'
-import {getPlacesAsync} from '../../features/places/placeSlice';
+import {getPlacesAsync,
+        flyTo,
+        selectPlaces    
+    } from '../../features/places/placeSlice';
 import { useSelector, useDispatch } from 'react-redux';
-const places =  [
+const MocPlaces =  [
     {
         "id": 778,
         "longitude": "90.4012799263",
@@ -42,6 +45,7 @@ const places =  [
 
 const SearchBox = () => {
     const dispatch = useDispatch();
+    const places = useSelector(selectPlaces);
     return (
         <>
            <Autocomplete
@@ -57,17 +61,20 @@ const SearchBox = () => {
                     if (option.inputValue) {
                       return option.inputValue;
                     }
-                    return option.area;
+                    return option.Address.split(',')[0];
                   }}
                 renderOption={(props, option) => (
-                    <li {...props} key={option.id} >
-                        {option.area}
+                    <li  {...props} key={option.id} >
+                        {option.Address.split(',')[0]}
                         <span>{option.address}</span>
                     </li>)}
                 // defaultValue={[places[0].address]}
+                //dispatch(selectPlace(value.id))
+                onChange={ (e,value) => {dispatch(flyTo(value.id))}}
                 renderInput={(params) => (
                 <TextField
                     onChange={e => dispatch(getPlacesAsync(e.target.value || ''))}
+                    
                     {...params}
                     label=""
                     InputProps={{

@@ -2,11 +2,12 @@
 export function fetchPlace(keyword = '') {
     let url = "https://api.bmapsbd.com/search/autocomplete/web?search=" + keyword;
     return new Promise((resolve) => {
+        console.log('promise ')
         return setTimeout(() => resolve({ 
             data: fetch(url)
                         .then(response => response.json())
                         .then(response => response.places) 
-        }), 1000)
+        }), 500)
     }
 
     );
