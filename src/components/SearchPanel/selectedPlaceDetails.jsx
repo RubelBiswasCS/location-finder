@@ -10,6 +10,8 @@ import { useSelector, useDispatch } from 'react-redux';
 const SelectedPlaceDetails = () => {
     const selectedPlace = useSelector(selectCurrentPlace)
     return (
+        <>
+        { (selectedPlace.Address)?
         <Container className="selected-place-details">
        
             <Typography variant="h5">{selectedPlace.Address}</Typography>
@@ -18,7 +20,9 @@ const SelectedPlaceDetails = () => {
             <Typography>{selectedPlace.pType}</Typography>
             <Typography>Place Code: {selectedPlace.uCode}</Typography>
         
-        </Container>
+        </Container>:''
+        }
+        </>
     );
 }
 export default SelectedPlaceDetails;
