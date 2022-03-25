@@ -1,9 +1,15 @@
 
-.search-home{
+div.search-home{
+  box-sizing: border-box;
+  height: 100vh !important;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 100%;
+  //border: 1px solid salmon;
+  padding:0px;
+  margin:0px;
 }
 
 
