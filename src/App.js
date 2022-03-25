@@ -4,7 +4,6 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 
 import './App.scss';
-import { Counter } from './features/counter/Counter';
 import SearchPanel from './components/SearchPanel';
 import MapPanel from './components/MapPanel';
 
