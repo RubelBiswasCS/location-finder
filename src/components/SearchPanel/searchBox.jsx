@@ -7,41 +7,7 @@ import {getPlacesAsync,
         selectPlaces    
     } from '../../features/places/placeSlice';
 import { useSelector, useDispatch } from 'react-redux';
-const MocPlaces =  [
-    {
-        "id": 778,
-        "longitude": "90.4012799263",
-        "latitude": "23.768977904449",
-        "address": "House 77, Shahid Taj Uddin Ahmed Sharani",
-        "city": "Dhaka",
-        "area": "Kejgaon",
-        "postCode": 1208,
-        "pType": "Industry",
-        "uCode": "MAPB0183"
-    },
-    {
-        "id": 2,
-        "longitude": "90.40287181735",
-        "latitude": "23.769046635996",
-        "address": "House 77, Tejgaon Industrial Area",
-        "city": "Dhaka",
-        "area": "Nejgaon",
-        "postCode": 1208,
-        "pType": "Industry",
-        "uCode": "EAST9031"
-    },
-    {
-        "id": 3,
-        "longitude": "90.40298178792",
-        "latitude": "23.768945072849",
-        "address": "House 77, Tejgaon Industrial Area",
-        "city": "Dhaka",
-        "area": "Tejgaon",
-        "postCode": 1208,
-        "pType": "Industry",
-        "uCode": "AIMS0122"
-    }
-]
+
 
 const SearchBox = () => {
     const dispatch = useDispatch();
