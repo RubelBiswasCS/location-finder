@@ -18,8 +18,8 @@ from '../../features/places/placeSlice';
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-// const mapboxAccessToken = 'pk.eyJ1IjoicnViZWxiaXN3YXMiLCJhIjoiY2wxNjBqbG1yMHVoODNkcWExZmc0Y2JvaiJ9.qshAlfWDxCblvr_MJkLg-Q'
-const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN
+const mapboxAccessToken = 'pk.eyJ1IjoicnViZWxiaXN3YXMiLCJhIjoiY2wxNjBqbG1yMHVoODNkcWExZmc0Y2JvaiJ9.qshAlfWDxCblvr_MJkLg-Q'
+//const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN
 const colors = {
     'Admin':'red',
     'Office':'cyan',
