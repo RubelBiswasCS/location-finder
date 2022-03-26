@@ -1,7 +1,11 @@
 
 .top{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    min-width: 100%;
+    justify-content: space-between;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
     border: 1px solid orangered;
 }
 
@@ -15,4 +19,8 @@
     @media (min-width: 1024px){
         font-size: 2rem;
     }
+  }
+
+  .theme-toggle-btn{
+ 
   }

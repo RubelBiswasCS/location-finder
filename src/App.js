@@ -1,69 +1,45 @@
 import React from 'react';
-
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
-
 import './App.scss';
 import SearchPanel from './components/SearchPanel';
 import MapPanel from './components/MapPanel';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
 
-
+import { selectTheme } from './features/theme/themeSlice';
 
 function App() {
+  const mode = useSelector(selectTheme);
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode:mode,
+        },
+      }),
+    [mode],
+  );
+
   return (
-    <Container className={'search-home'}>
-      <SearchPanel/>
-      <MapPanel/>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container 
+        className={'search-home'} 
+        sx={{
+          display: 'flex',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          bgcolor: 'background.default',
+          color: 'text.primary',
+          borderRadius: 1,
+          p: 3,
+        }}
+      >
+        <SearchPanel />
+        <MapPanel />
+      </Container>
+    </ThemeProvider>
   );
 }
 
 export default App;
-
-
-{/* <div className="App">
-      <header className="App-header">
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div> */}
