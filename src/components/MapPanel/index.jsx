@@ -13,10 +13,11 @@ import {getPlacesAsync,
         setCurrentPlaceId,
         selectCurrentPlaceId,
         selectCurrentPlace
-    }
-from '../../features/places/placeSlice';
+    } from '../../features/places/placeSlice';
+import {selectTheme} from '../../features/theme/themeSlice';
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 
 const mapboxAccessToken = 'pk.eyJ1IjoicnViZWxiaXN3YXMiLCJhIjoiY2wxNjBqbG1yMHVoODNkcWExZmc0Y2JvaiJ9.qshAlfWDxCblvr_MJkLg-Q'
 //const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN
@@ -34,7 +35,6 @@ const colors = {
     'Recreation':'palevioletred',
     'Commercial':'blueviolet',
     'Bank':'greenyellow'
-
 }
 
 const MapPanel = () => {
@@ -48,11 +48,13 @@ const MapPanel = () => {
         longitude:'90.4125',
         zoom:12,
       });
-    
-    //console.log('viewport: ',viewport)
-
-    // onViewportChange = {viewport => dispatch(setViewport(viewport))}
-    // initialViewState={viewport}
+    const theme = useSelector(selectTheme);
+    //"mapbox://styles/mapbox/dark-v10"
+    //"mapbox://styles/mapbox/streets-v9"
+    const mapStyle = (theme === 'light'
+            ?"mapbox://styles/mapbox/streets-v9"
+            :"mapbox://styles/mapbox/navigation-night-v1");
+ 
     React.useEffect(() => {
       
         setViewState(oldViewport => ({
@@ -69,7 +71,7 @@ const MapPanel = () => {
             onMove={evt => setViewState(evt.viewState)}
             mapboxAccessToken={mapboxAccessToken}
             onViewportChange={nextViewport => setViewport(nextViewport)}
-            mapStyle="mapbox://styles/mapbox/streets-v9"
+            mapStyle={mapStyle}
             >
             {places.map( place => (
                 <Marker key={place.id} latitude={place.latitude} longitude={place.longitude}>

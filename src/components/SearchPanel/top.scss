@@ -1,12 +1,12 @@
 
-.top{
+div.top{
     display: flex;
     flex-direction: row;
     min-width: 100%;
     justify-content: space-between;
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-    border: 1px solid orangered;
+    padding:10px !important;
+
+    //border: 1px solid orangered;
 }
 
 .brand-logo span {
